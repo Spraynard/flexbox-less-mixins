@@ -1,0 +1,249 @@
+/* FLEXBOX HELPERS */
+.cross-browser-flexbox {
+	// Specifies div that this mixin is in as a flexbox.
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+}
+
+/* ALIGN ITEMS
+
+	VALID INPUTS:
+		* flex-start
+		* flex-end
+		* center
+		* baseline
+		* stretch
+*/
+
+.flex-align-items-options( @param ) when ( @param = flex-start) {
+	  -webkit-box-align: start;
+	     -moz-box-align: start;
+	-webkit-align-items: @param;
+		 -ms-flex-align: start;
+			align-items: @param;
+}
+
+.flex-align-items-options( @param ) when ( @param = flex-end ) {
+	  -webkit-box-align: end;
+	     -moz-box-align: end;
+	-webkit-align-items: @param;
+		 -ms-flex-align: end;
+			align-items: @param;
+}
+
+.flex-align-items-options( @param ) when (default()) {
+	  -webkit-box-align: @param;
+	     -moz-box-align: @param;
+	-webkit-align-items: @param;
+		 -ms-flex-align: @param;
+			align-items: @param;
+}
+
+/* END ALIGN ITEMS */
+
+/* ALIGN CONTENT 
+
+VALID INPUTS:
+	* flex-start
+	* flex-end
+	* center
+	* space-between
+	* space-around
+	* stretch
+*/
+
+.flex-align-content-options( @param ) when ( @param = flex-start ) {
+	-webkit-align-content: flex-start;
+	   -ms-flex-line-pack: start;
+			align-content: flex-start;
+}
+
+.flex-align-content-options( @param ) when ( @param = flex-end ) {
+	-webkit-align-content: @param;
+	   -ms-flex-line-pack: end;
+			align-content: @param;
+}
+
+.flex-align-content-options( @param ) when ( @param = space-between ) {
+	-webkit-align-content: @param;
+	   -ms-flex-line-pack: justify;
+			align-content: @param;
+}
+
+.flex-align-content-options( @param ) when ( @param = space-around ) {
+	-webkit-align-content: @param;
+	   -ms-flex-line-pack: distribute;
+			align-content: @param;
+}
+
+.flex-align-content-options( @param ) when (default()) {
+	-webkit-align-content: @param;
+	   -ms-flex-line-pack: @param;
+			align-content: @param;
+}
+
+/* END ALIGN CONTENT
+	
+	VALID INPUTS:
+		* wrap
+		* no-wrap
+		* wrap-reverse
+*/
+
+.flex-wrap-options( @param ) {
+	-webkit-flex-wrap: @param;
+		-ms-flex-wrap: @param;
+			flex-wrap: @param;
+}
+
+/* FLEX DIRECTION
+	
+	VALID INPUTS:
+		* row
+		* row-reverse
+		* column
+		* column-reverse
+*/
+
+.flex-direction-options( @param ) when ( @param = row ) {
+	 -webkit-box-direction: normal;
+	    -moz-box-direction: normal;
+	    -webkit-box-orient: horizontal;
+	       -moz-box-orient: horizontal;
+	-webkit-flex-direction: @param;
+		-ms-flex-direction: @param;
+			flex-direction: @param;
+}
+
+.flex-direction-options( @param ) when ( @param = row-reverse ) {
+	 -webkit-box-direction: reverse;
+	    -moz-box-direction: reverse;
+	    -webkit-box-orient: horizontal;
+	       -moz-box-orient: horizontal;
+	-webkit-flex-direction: @param;
+		-ms-flex-direction: @param;
+			flex-direction: @param;
+}
+
+.flex-direction-options( @param ) when ( @param = column ) {
+	 -webkit-box-direction: normal;
+	    -moz-box-direction: normal;
+	    -webkit-box-orient: vertical;
+	       -moz-box-orient: vertical;
+	-webkit-flex-direction: @param;
+		-ms-flex-direction: @param;
+			flex-direction: @param;
+}
+
+.flex-direction-options( @param ) when ( @param = column-reverse ) {
+	 -webkit-box-direction: reverse;
+	    -moz-box-direction: reverse;
+	    -webkit-box-orient: vertical;
+	       -moz-box-orient: vertical;
+	-webkit-flex-direction: @param;
+		-ms-flex-direction: @param;
+			flex-direction: @param;
+}
+
+/* END FLEX DIRECTION */
+
+/* JUSTIFY CONTENT 
+	
+	VALID INPUTS:
+		* flex-start
+		* flex-end
+		* center
+		* space-between
+		* space-around		
+*/
+
+.flex-justify-options( @param ) when ( @param = flex-start ) {
+	       -webkit-box-pack: start;
+	          -moz-box-pack: start;
+	-webkit-justify-content: @param;
+	          -ms-flex-pack: start;
+	   		justify-content: @param;
+}
+
+.flex-justify-options( @param ) when ( @param = flex-end ) {
+	       -webkit-box-pack: end;
+	          -moz-box-pack: end;
+	-webkit-justify-content: @param;
+	          -ms-flex-pack: end;
+	   		justify-content: @param;
+}
+
+.flex-justify-options( @param ) when ( @param = space-between ) {
+	       -webkit-box-pack: justify;
+	          -moz-box-pack: justify;
+	-webkit-justify-content: @param;
+	          -ms-flex-pack: justify;
+	   		justify-content: @param;
+}
+
+.flex-justify-options( @param ) when ( @param = space-around ) {
+	       -webkit-box-pack: justify;
+	          -moz-box-pack: justify;
+	-webkit-justify-content: @param;
+	          -ms-flex-pack: distribute;
+	   		justify-content: @param;
+}
+
+.flex-justify-options( @param ) when (default()){
+	       -webkit-box-pack: @param;
+	          -moz-box-pack: @param;
+	-webkit-justify-content: @param;
+	          -ms-flex-pack: @param;
+	   		justify-content: @param;
+}
+
+/* END JUSTIFY CONTENT */
+
+/* FLEX ITEM MIXINS 
+
+	These mixins are specifically for flex-items (children), whereas
+		the other mixins are to be used on the flex-parent container
+*/
+.flex-align-self-options( @param ) {
+	/* 
+		VALID INPUTS:
+			* auto
+			* flex-start
+			* flex-end
+			* center
+			* baseline
+			* stretch			
+	*/
+
+	-webkit-align-self: @param;
+	-ms-flex-item-align: @param;
+			align-self: @param;
+}
+
+.flex-order-options( @param ) {
+	/*
+		VALID INPUT:
+			* Any order that you would want your flex-item
+				to be in. Must be an ***INT***
+	*/
+	-webkit-order: @param;
+	-ms-flex-order: @param;
+			order: @param;
+}
+
+.flex-options( @params ) {
+	// Flex-item options.
+	// Input will follow [ [ flex-grow ] [ flex-shrink ]  [ flex-basis] ] guidelines.
+	// Can also just put whatever you want in here, like "1" or any other valid entry.
+	-webkit-flex: @params;
+		-ms-flex: @params;
+			flex: @params;
+}
+
+/* END FLEX ITEM MIXINS */
+
+
+/* END FLEXBOX HELPERS*/
